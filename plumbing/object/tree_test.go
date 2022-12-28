@@ -5,12 +5,12 @@ import (
 	"errors"
 	"io"
 
+	"github.com/andskur/go-git/v5/plumbing"
+	"github.com/andskur/go-git/v5/plumbing/cache"
+	"github.com/andskur/go-git/v5/plumbing/filemode"
+	"github.com/andskur/go-git/v5/plumbing/storer"
+	"github.com/andskur/go-git/v5/storage/filesystem"
 	fixtures "github.com/go-git/go-git-fixtures/v4"
-	"github.com/go-git/go-git/v5/plumbing"
-	"github.com/go-git/go-git/v5/plumbing/cache"
-	"github.com/go-git/go-git/v5/plumbing/filemode"
-	"github.com/go-git/go-git/v5/plumbing/storer"
-	"github.com/go-git/go-git/v5/storage/filesystem"
 
 	. "gopkg.in/check.v1"
 )

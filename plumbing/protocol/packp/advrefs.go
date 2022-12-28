@@ -5,10 +5,10 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/go-git/go-git/v5/plumbing"
-	"github.com/go-git/go-git/v5/plumbing/protocol/packp/capability"
-	"github.com/go-git/go-git/v5/plumbing/storer"
-	"github.com/go-git/go-git/v5/storage/memory"
+	"github.com/andskur/go-git/v5/plumbing"
+	"github.com/andskur/go-git/v5/plumbing/protocol/packp/capability"
+	"github.com/andskur/go-git/v5/plumbing/storer"
+	"github.com/andskur/go-git/v5/storage/memory"
 )
 
 // AdvRefs values represent the information transmitted on an
@@ -96,12 +96,12 @@ func (a *AdvRefs) addRefs(s storer.ReferenceStorer) error {
 //
 // Git versions prior to 1.8.4.3 has an special procedure to get
 // the reference where is pointing to HEAD:
-// - Check if a reference called master exists. If exists and it
-//	 has the same hash as HEAD hash, we can say that HEAD is pointing to master
-// - If master does not exists or does not have the same hash as HEAD,
-//   order references and check in that order if that reference has the same
-//   hash than HEAD. If yes, set HEAD pointing to that branch hash
-// - If no reference is found, throw an error
+//   - Check if a reference called master exists. If exists and it
+//     has the same hash as HEAD hash, we can say that HEAD is pointing to master
+//   - If master does not exists or does not have the same hash as HEAD,
+//     order references and check in that order if that reference has the same
+//     hash than HEAD. If yes, set HEAD pointing to that branch hash
+//   - If no reference is found, throw an error
 func (a *AdvRefs) resolveHead(s storer.ReferenceStorer) error {
 	if a.Head == nil {
 		return nil

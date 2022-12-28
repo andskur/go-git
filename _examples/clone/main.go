@@ -3,9 +3,6 @@ package main
 import (
 	"fmt"
 	"os"
-
-	"github.com/go-git/go-git/v5"
-	. "github.com/go-git/go-git/v5/_examples"
 )
 
 // Basic example of how to clone a repository using clone options.

@@ -1,6 +1,5 @@
 // Package test implements common test suite for different transport
 // implementations.
-//
 package test
 
 import (
@@ -10,12 +9,12 @@ import (
 	"io/ioutil"
 	"time"
 
-	"github.com/go-git/go-git/v5/plumbing"
-	"github.com/go-git/go-git/v5/plumbing/format/packfile"
-	"github.com/go-git/go-git/v5/plumbing/protocol/packp"
-	"github.com/go-git/go-git/v5/plumbing/protocol/packp/capability"
-	"github.com/go-git/go-git/v5/plumbing/transport"
-	"github.com/go-git/go-git/v5/storage/memory"
+	"github.com/andskur/go-git/v5/plumbing"
+	"github.com/andskur/go-git/v5/plumbing/format/packfile"
+	"github.com/andskur/go-git/v5/plumbing/protocol/packp"
+	"github.com/andskur/go-git/v5/plumbing/protocol/packp/capability"
+	"github.com/andskur/go-git/v5/plumbing/transport"
+	"github.com/andskur/go-git/v5/storage/memory"
 
 	. "gopkg.in/check.v1"
 )

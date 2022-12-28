@@ -9,11 +9,11 @@ import (
 	"path/filepath"
 	"testing"
 
+	"github.com/andskur/go-git/v5/plumbing"
+	"github.com/andskur/go-git/v5/plumbing/cache"
+	"github.com/andskur/go-git/v5/storage/filesystem/dotgit"
 	"github.com/go-git/go-billy/v5"
 	"github.com/go-git/go-billy/v5/osfs"
-	"github.com/go-git/go-git/v5/plumbing"
-	"github.com/go-git/go-git/v5/plumbing/cache"
-	"github.com/go-git/go-git/v5/storage/filesystem/dotgit"
 
 	fixtures "github.com/go-git/go-git-fixtures/v4"
 	. "gopkg.in/check.v1"

@@ -6,13 +6,13 @@ import (
 	"io"
 	"os"
 
+	"github.com/andskur/go-git/v5/plumbing"
+	"github.com/andskur/go-git/v5/plumbing/cache"
+	"github.com/andskur/go-git/v5/plumbing/format/idxfile"
+	"github.com/andskur/go-git/v5/plumbing/storer"
+	"github.com/andskur/go-git/v5/utils/ioutil"
+	"github.com/andskur/go-git/v5/utils/sync"
 	billy "github.com/go-git/go-billy/v5"
-	"github.com/go-git/go-git/v5/plumbing"
-	"github.com/go-git/go-git/v5/plumbing/cache"
-	"github.com/go-git/go-git/v5/plumbing/format/idxfile"
-	"github.com/go-git/go-git/v5/plumbing/storer"
-	"github.com/go-git/go-git/v5/utils/ioutil"
-	"github.com/go-git/go-git/v5/utils/sync"
 )
 
 var (

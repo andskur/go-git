@@ -9,10 +9,10 @@ import (
 	"io"
 	stdioutil "io/ioutil"
 
-	"github.com/go-git/go-git/v5/plumbing"
-	"github.com/go-git/go-git/v5/utils/binary"
-	"github.com/go-git/go-git/v5/utils/ioutil"
-	"github.com/go-git/go-git/v5/utils/sync"
+	"github.com/andskur/go-git/v5/plumbing"
+	"github.com/andskur/go-git/v5/utils/binary"
+	"github.com/andskur/go-git/v5/utils/ioutil"
+	"github.com/andskur/go-git/v5/utils/sync"
 )
 
 var (

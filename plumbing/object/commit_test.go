@@ -8,11 +8,11 @@ import (
 	"strings"
 	"time"
 
+	"github.com/andskur/go-git/v5/plumbing"
+	"github.com/andskur/go-git/v5/plumbing/cache"
 	fixtures "github.com/go-git/go-git-fixtures/v4"
-	"github.com/go-git/go-git/v5/plumbing"
-	"github.com/go-git/go-git/v5/plumbing/cache"
 
-	"github.com/go-git/go-git/v5/storage/filesystem"
+	"github.com/andskur/go-git/v5/storage/filesystem"
 	. "gopkg.in/check.v1"
 )
 
@@ -449,7 +449,7 @@ YIefGtzXfldDxg4=
 `
 
 	e, err := commit.Verify(armoredKeyRing)
-        c.Assert(err, IsNil)
+	c.Assert(err, IsNil)
 
 	_, ok := e.Identities["go-git test key"]
 	c.Assert(ok, Equals, true)

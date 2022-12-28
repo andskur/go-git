@@ -2,9 +2,6 @@ package main
 
 import (
 	"os"
-
-	"github.com/go-git/go-git/v5"
-	. "github.com/go-git/go-git/v5/_examples"
 )
 
 // Example of how to open a repository in a specific path, and push to

@@ -14,20 +14,20 @@ import (
 	"time"
 
 	"github.com/ProtonMail/go-crypto/openpgp"
+	"github.com/andskur/go-git/v5/config"
+	"github.com/andskur/go-git/v5/internal/revision"
+	"github.com/andskur/go-git/v5/plumbing"
+	"github.com/andskur/go-git/v5/plumbing/cache"
+	"github.com/andskur/go-git/v5/plumbing/format/packfile"
+	"github.com/andskur/go-git/v5/plumbing/object"
+	"github.com/andskur/go-git/v5/plumbing/storer"
+	"github.com/andskur/go-git/v5/storage"
+	"github.com/andskur/go-git/v5/storage/filesystem"
+	"github.com/andskur/go-git/v5/storage/filesystem/dotgit"
+	"github.com/andskur/go-git/v5/utils/ioutil"
 	"github.com/go-git/go-billy/v5"
 	"github.com/go-git/go-billy/v5/osfs"
 	"github.com/go-git/go-billy/v5/util"
-	"github.com/go-git/go-git/v5/config"
-	"github.com/go-git/go-git/v5/internal/revision"
-	"github.com/go-git/go-git/v5/plumbing"
-	"github.com/go-git/go-git/v5/plumbing/cache"
-	"github.com/go-git/go-git/v5/plumbing/format/packfile"
-	"github.com/go-git/go-git/v5/plumbing/object"
-	"github.com/go-git/go-git/v5/plumbing/storer"
-	"github.com/go-git/go-git/v5/storage"
-	"github.com/go-git/go-git/v5/storage/filesystem"
-	"github.com/go-git/go-git/v5/storage/filesystem/dotgit"
-	"github.com/go-git/go-git/v5/utils/ioutil"
 	"github.com/imdario/mergo"
 )
 
@@ -750,21 +750,20 @@ func (r *Repository) buildTagSignature(tag *object.Tag, signKey *openpgp.Entity)
 // If you want to check to see if the tag is an annotated tag, you can call
 // TagObject on the hash of the reference in ForEach:
 //
-//   ref, err := r.Tag("v0.1.0")
-//   if err != nil {
-//     // Handle error
-//   }
+//	ref, err := r.Tag("v0.1.0")
+//	if err != nil {
+//	  // Handle error
+//	}
 //
-//   obj, err := r.TagObject(ref.Hash())
-//   switch err {
-//   case nil:
-//     // Tag object present
-//   case plumbing.ErrObjectNotFound:
-//     // Not a tag object
-//   default:
-//     // Some other error
-//   }
-//
+//	obj, err := r.TagObject(ref.Hash())
+//	switch err {
+//	case nil:
+//	  // Tag object present
+//	case plumbing.ErrObjectNotFound:
+//	  // Not a tag object
+//	default:
+//	  // Some other error
+//	}
 func (r *Repository) Tag(name string) (*plumbing.Reference, error) {
 	ref, err := r.Reference(plumbing.ReferenceName(path.Join("refs", "tags", name)), false)
 	if err != nil {
@@ -1241,26 +1240,25 @@ func commitIterFunc(order LogOrder) func(c *object.Commit) object.CommitIter {
 // If you want to check to see if the tag is an annotated tag, you can call
 // TagObject on the hash Reference passed in through ForEach:
 //
-//   iter, err := r.Tags()
-//   if err != nil {
-//     // Handle error
-//   }
+//	iter, err := r.Tags()
+//	if err != nil {
+//	  // Handle error
+//	}
 //
-//   if err := iter.ForEach(func (ref *plumbing.Reference) error {
-//     obj, err := r.TagObject(ref.Hash())
-//     switch err {
-//     case nil:
-//       // Tag object present
-//     case plumbing.ErrObjectNotFound:
-//       // Not a tag object
-//     default:
-//       // Some other error
-//       return err
-//     }
-//   }); err != nil {
-//     // Handle outer iterator error
-//   }
-//
+//	if err := iter.ForEach(func (ref *plumbing.Reference) error {
+//	  obj, err := r.TagObject(ref.Hash())
+//	  switch err {
+//	  case nil:
+//	    // Tag object present
+//	  case plumbing.ErrObjectNotFound:
+//	    // Not a tag object
+//	  default:
+//	    // Some other error
+//	    return err
+//	  }
+//	}); err != nil {
+//	  // Handle outer iterator error
+//	}
 func (r *Repository) Tags() (storer.ReferenceIter, error) {
 	refIter, err := r.Storer.IterReferences()
 	if err != nil {
