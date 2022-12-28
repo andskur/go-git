@@ -24,9 +24,9 @@ const (
 // UpdateObjectStorage updates the storer with the objects in the given
 // packfile.
 func UpdateObjectStorage(s storer.Storer, packfile io.Reader) error {
-	if pw, ok := s.(storer.PackfileWriter); ok {
+	/*if pw, ok := s.(storer.PackfileWriter); ok {
 		return WritePackfileToObjectStorage(pw, packfile)
-	}
+	}*/
 
 	p, err := NewParserWithStorage(NewScanner(packfile), s)
 	if err != nil {
